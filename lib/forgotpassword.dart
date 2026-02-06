@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:registration_app_flutter/login.dart';
 
 class Forgotpassword extends StatelessWidget {
   const Forgotpassword({super.key});
@@ -24,6 +25,37 @@ class Forgotpassword extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 20,),
+                SizedBox(
+                height: 50,
+                width: 300,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>Login(),));
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    side: BorderSide(color: Colors.black),
+                  ),
+                  child: Text(
+                    "Send",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20,),
+              GestureDetector
+              
+              (
+                
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Login(),));
+                },
+                child: Text("Back to Login",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.red),))
             ],
           ),
         ),
