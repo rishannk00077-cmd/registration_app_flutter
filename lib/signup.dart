@@ -14,6 +14,8 @@ class _SignupState extends State<Signup> {
   TextEditingController emailc=TextEditingController();
   TextEditingController passwordc=TextEditingController();
   TextEditingController ConfirmPasswordc=TextEditingController();
+  bool visible = true;
+  bool isvisible = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +52,13 @@ class _SignupState extends State<Signup> {
               SizedBox(height: 10,),
               Align(alignment: Alignment.topLeft, child: Text("Password")),
               TextField(controller: passwordc,
+              obscureText: visible,
                 decoration: InputDecoration(
+                  suffixIcon: IconButton(onPressed: () {
+                    setState(() {
+                      visible =!visible;
+                    });
+                  }, icon: visible? Icon(Icons.visibility_off) : Icon(Icons.visibility)) ,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: Colors.black),
@@ -60,7 +68,13 @@ class _SignupState extends State<Signup> {
               SizedBox(height: 10,),
               Align(alignment: Alignment.topLeft, child: Text("Confirm Password")),
               TextField(controller: ConfirmPasswordc,
+              obscureText:! isvisible,
                 decoration: InputDecoration(
+                  suffixIcon: IconButton(onPressed: () {
+                    setState(() {
+                      isvisible =!isvisible;
+                    });
+                  }, icon: isvisible? Icon(Icons.visibility) : Icon(Icons.visibility_off)) ,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: Colors.black),
